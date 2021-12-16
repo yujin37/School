@@ -86,11 +86,29 @@ void Find(Music *music){
     printf("노래를 찾지 못했습니다. 노래 찾기를 종료합니다.\n");
 }
 void List(Music *music){
+    char yn[2];
     printf("환영합니다. 노래목록을 출력합니다.\n");
     for(int i=0;i<n;i++){
         printf("노래제목: %s\n가수: %s\n발매연도: %d\n\n", music[i].title, music[i].artist,music[i].year);
     }
     printf("노래를 모두 출력하였습니다.\n-------------------\n");
+    printf("이 목록들을 모두 기록할까요?");
+    scanf("%s",yn);
+    if(!strcmp(yn,"y")){
+        printf("기록을 시작합니다.\n");
+        FILE *fp=fopen("music.txt","wb");
+        /*for(int i=0;i<n;i++){
+            fwrite(music[i].title,strlen(music[i].title),1,fp);
+            fwrite(music[i].artist,strlen(music[i].artist),1,fp);
+            fwrite(music[i].year,sizeof(music[i].year),1,fp);
+        }*/
+        fwrite(music, sizeof(music),1,fp);
+        fclose(fp);
+        printf("기록이 완료되었습니다.\n");
+    }
+    else if(!strcmp(yn,"n")){
+        printf("기록을 하지 않습니다.");
+    }
 }
 void Del(Music *music){
     char song[50];
