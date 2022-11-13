@@ -3,7 +3,7 @@ class Solution:
         area={}
         grid_x=len(grid[0])
         grid_y=len(grid)
-        cnt=0
+  
         p={}
         def make_set(x):
             p[x]=x
@@ -11,8 +11,6 @@ class Solution:
         def union(x,y):
             rx=find(x)
             ry=find(y)
-            #if y==(4,9):
-                #print(rx,p[x])
             if rx and ry and rx!=ry:
                 p[rx]=ry
                 area[ry] += area[rx]
@@ -26,15 +24,6 @@ class Solution:
         for i in range(grid_y):
             for j in range(grid_x):
                 make_set((i,j))
-        #print(p)
-        
-        '''
-            for i in range(grid_x):
-                if i-1<0:
-                    continue
-                if grid[i-1][j]==1:
-                    union((i-1,j),(i,j))
-        '''
         for i in range(grid_y):
             for j in range(grid_x):
                 if grid[i][j]==1:
@@ -48,8 +37,7 @@ class Solution:
                 else:
                     area[(i,j)]=0
                 
-        #print(p)
+
         print(area)
-        #print(max(area, key=area.get))
         return max(area.values())
      
