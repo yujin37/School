@@ -4,54 +4,52 @@ class Solution:
         grid_x=len(grid[0])
         grid_y=len(grid)
         cnt=0
-        p=[[0]*grid_x for _ in range(grid_y)]
+        p={}
+        def make_set(x):
+            p[x]=x
         
-        def make_set(y,x):#이건 자기자신을 가르키도록
-            p[y][x]=(y,x)
+        def union(x,y):
+            rx=find(x)
+            ry=find(y)
+            #if y==(4,9):
+                #print(rx,p[x])
+            if rx and ry and rx!=ry:
+                p[rx]=ry
+                area[ry] += area[rx]
+        def find(x):
+            if not x in p:
+                return None
+            if p[x]!=x:
+                p[x]=find(p[x])
+            return p[x]
         
-        def union(x,y):#합치는게 문제인데
-            r1=find_set(x)
-            r2=find_set(y)
-            t1,t2=x[0],x[1]
-            r11,r12=r1[0],r1[1]
-            #print(r1, r2)
-  
-            if r1!=r2 and ((r11+1,r12)==r2 or (r11,r12+1)==r2):
-                p[t1][t2]=r2
-                area[r2] += area[r1]
-                
-        def find_set(x):#parent 와 비교
-            t1,t2=x[0],x[1]
-            if x==p[t1][t2]: #이건 자기자신 가르킬 때하는거고.
-                return x
-            else:
-                return find_set(p[t1][t2])#아니면 이걸로 리턴해준다?
- 
-        for i in range(grid_y):#이건 부모노드 자기자신
-            for j in range(grid_x):
-                make_set(i,j)
         for i in range(grid_y):
-            for j in range(grid_x):#그게 아니라 어떻게 연결된걸 찾으면서 개수를 세냐고.
+            for j in range(grid_x):
+                make_set((i,j))
+        #print(p)
+        
+        '''
+            for i in range(grid_x):
+                if i-1<0:
+                    continue
+                if grid[i-1][j]==1:
+                    union((i-1,j),(i,j))
+        '''
+        for i in range(grid_y):
+            for j in range(grid_x):
                 if grid[i][j]==1:
                     area[(i,j)]=1
+                    #if i-1<0 or j-1<0 :
+                        #continue
+                    if grid[i-1][j]==1:
+                        union((i-1,j),(i,j))
+                    if grid[i][j-1]==1:
+                        union((i,j-1), (i,j))
                 else:
                     area[(i,j)]=0
-                    continue
-                if i-1<0 and j-1<0:
-                    continue
-                if i-1<0:
-                    union((i,j-1), (i,j))
-                if j-1<0:
-                    union((i-1,j),(i,j))
-                else:
-                    union((i-1,j),(i,j))
-                    union((i,j-1), (i,j))
-                    
-                print(p)
                 
-                    
-                    
-        #test=area.values() 
-        #print(area)
+        #print(p)
+        print(area)
+        #print(max(area, key=area.get))
         return max(area.values())
      
