@@ -1,3 +1,5 @@
+import heapq
+
 class Solution:
                 
             
@@ -20,10 +22,14 @@ class Solution:
                         alt=time+w
                         heapq.heappush(q, (alt, v))
             dist=dict(dist)
-            #print(dist)
+            print(dist)
             if len(dist)==n:
                 return max(dist.values())
-            return -1  
+            return -1
+            
+            
+
+        
         for i in range(len(times)):
             if times[i][0] in times_s:
                 times_s[times[i][0]].append((times[i][1], times[i][2]))
