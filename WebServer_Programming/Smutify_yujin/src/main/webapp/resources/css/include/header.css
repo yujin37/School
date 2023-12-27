@@ -1,0 +1,13 @@
+#header_wrap {
+	margin: 0 auto;
+}
+.title {
+	height: 80px;
+	line-height: 80px;
+	width: 100%;
+	text-align: center;
+	}
+.title h1 {
+	color: #000000;
+	text-align: center;
+}

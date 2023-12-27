@@ -1,0 +1,22 @@
+.word {
+	text-align: center;
+}
+.login_form {
+	margin: 0 auto;
+	text-align: center;
+	width: 250px;
+	display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login_form input[type='text'] {
+	width: 300px;
+	margin: 5px;
+}
+
+.login_form input[type='button']{
+	width: 100px;
+	height: 30px;
+	margin-bottom: 20px;
+}

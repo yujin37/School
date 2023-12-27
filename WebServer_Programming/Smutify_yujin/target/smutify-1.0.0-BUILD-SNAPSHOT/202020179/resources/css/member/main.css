@@ -1,0 +1,50 @@
+#section_wrap {
+	display: flex;
+	flex-direction:column;
+}
+#section_wrap .word h3{
+	margin: 0 auto;
+	text-align: center;
+}
+
+
+#section_wrap .playlist h4{
+	text-align: left;
+	margin-left: 10px;
+}
+
+#section_wrap .product_list table{
+	width: 90%;
+	border-collapse: collapse; 
+	border-top: 1px solid #c0c0c0;
+	margin: 0 auto;
+	margin-bottom: 10px;
+}
+
+#section_wrap .playlist_list table th,td{
+	border-left: 1px solid #c0c0c0;
+	border-bottom: 1px solid #c0c0c0;
+    padding: 10px;
+	text-align: center;
+}
+#create_playlist {
+	float: right;
+	margin-bottom: 20px;
+	margin-right: 10px;
+}
+
+#section_wrap .playlist_list th:first-child, td:first-child {
+    border-left: none;
+  }
+  
+#section_wrap .playlist_list th {
+ 	background-color: #585858;
+ 	color: #ffffff;
+ }
+#section_wrap .playlist_list tbody tr:nth-child(2n) {
+    background-color: #A4A4A4;
+  }
+#section_wrap .playlist_list tbody tr:nth-child(2n+1) {
+   background-color: #F2F2F2;
+   
+ }

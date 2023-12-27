@@ -1,0 +1,25 @@
+#nav_wrap {
+	width: auto;
+	margin: 0 auto;
+}
+.menu ul {
+	overflow: hidden;
+}
+.menu ul li{
+    float: right;
+    margin-right: 2%;
+    
+}
+.search {
+	text-align: center; 
+	
+}
+
+.search input[type='text']{
+	width: 300px;
+	
+}
+
+.search input[type='button'] {
+	width: 100px;
+} 

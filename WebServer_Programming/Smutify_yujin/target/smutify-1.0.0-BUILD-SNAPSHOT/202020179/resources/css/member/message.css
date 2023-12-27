@@ -1,0 +1,12 @@
+.word {
+	text-align: center;
+}
+
+#section_wrap .others {
+	text-align: center;
+	margin-bottom: 300px;
+}
+#section_wrap .others a {
+	text-align: center;
+	margin: 10px;
+}

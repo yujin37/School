@@ -1,0 +1,39 @@
+#section_wrap .word{
+	text-align: center;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.search {
+	margin-bottom: 20px;
+}
+.song_list table{
+	width: 90%;
+	border-collapse: collapse; 
+	border-top: 1px solid #444444;
+	margin: 0 auto;
+	margin-bottom: 10px;
+}
+
+.song_list table th,td{
+	border-left: 1px solid #444444;
+	border-bottom: 1px solid #444444;
+    padding: 10px;
+	text-align: center;
+}
+
+.song_list th:first-child, td:first-child {
+    border-left: none;
+  }
+  
+.song_list th {
+ 	background-color: #585858;
+ 	color: #ffffff;
+ }
+.song_list tbody tr:nth-child(2n) {
+    background-color: #A4A4A4;
+  }
+.song_list tbody tr:nth-child(2n+1) {
+   background-color: #F2F2F2;
+   
+ }
